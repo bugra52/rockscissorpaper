@@ -1,39 +1,77 @@
 
+// variables
 let playerSelection = ("Rock, Scissor, Paper");
 const computerSelection = getComputerChoice();
 var playerScore = 0;
 var computerScore = 0;
 
+//scoreboard
+var p1 = document.getElementById('playerScore')
+var p2 = document.getElementById('computerScore')
+
+
+//restart button
 const restartBtn = document.getElementById('restartBtn')
 restartBtn.addEventListener('click', restartGame)
 
+const sbContainer = document.querySelector('.scoreboard')
+const contentPlayer = document.createElement('p')
+contentPlayer.classList.add('score')
+contentPlayer.textContent = 'You win!'
+
+const sbContainer2 = document.querySelector('.scoreboard')
+const contentComputer = document.createElement('p')
+contentComputer.classList.add('score')
+contentComputer.textContent = 'You lose!'
+
+
+const rock = document.getElementById('rock')
+rock.addEventListener('click', () => {
+    playerSelection = "rock";
+    game();
+});
+
+const scissor = document.getElementById('scissor')
+scissor.addEventListener('click', () => {
+    playerSelection = "scissor";
+    game();
+});
+
+const paper = document.getElementById('paper')
+paper.addEventListener('click', () => {
+    playerSelection = "paper";
+    game();
+});
+
 
 function game(){
-    while(playerScore != 5 && computerScore != 5){
-
+        var result = play(playerSelection, computerSelection);
+        if(playerScore == 5){
+            return sbContainer.appendChild(contentPlayer)
+        }
+        if(computerScore == 5){
+            return sbContainer.appendChild(contentComputer)
+        }
+        if (result == "Win" && playerScore !== 5){
+            playerScore++;
+            p1.textContent = playerScore;
+        }
+        if (result == "Lose" && computerScore !==5){
+            computerScore++;
+            p2.textContent = computerScore;
+        }
+        if(playerScore == 5){
+            return sbContainer.appendChild(contentPlayer)
+        }
+        if(computerScore == 5){
+            return sbContainer.appendChild(contentComputer)
+        }
         console.log(playerScore);
         console.log(computerScore);
-
-        var result = play(playerSelection, computerSelection);
-        if (result == "Win"){
-            playerScore++;
-        }
-        if (result == "Lose"){
-            computerScore++;
-        }
-        
-    }
-    console.log(playerScore);
-    console.log(computerScore);
-    console.log("Game has ended");
 }
 
 
 function play(playerSelection, computerSelection){
-
-    var playerSelection = prompt("Rock, Scissor, Paper");
-
-    var playerSelection = playerSelection.toLowerCase();
     computerSelection = getComputerChoice().toLowerCase();
 
     console.log(playerSelection);
@@ -82,9 +120,10 @@ function getComputerChoice(){
 function restartGame(){
     playerScore = 0
     computerScore = 0
+    p1.textContent = playerScore
+    p2.textContent = computerScore
     console.log("restart")
-    alert('Button wurde geklickt')
-    game();
+    contentPlayer.remove(sbContainer)
 }
 
 
