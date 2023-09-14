@@ -14,21 +14,21 @@ var p2 = document.getElementById('computerScore')
 const restartBtn = document.getElementById('restartBtn')
 restartBtn.addEventListener('click', restartGame)
 
+//container playerScore
 const sbContainer = document.querySelector('.scoreboard')
 const contentPlayer = document.createElement('p')
 contentPlayer.classList.add('score')
 contentPlayer.textContent = 'You win!'
 
+//container computerScore
 const sbContainer2 = document.querySelector('.scoreboard')
 const contentComputer = document.createElement('p')
 contentComputer.classList.add('score')
 contentComputer.textContent = 'You lose!'
 
-const imgContainer = document.querySelector('.rival')
-const contentImage = document.createElement('img')
-contentImage.src = "/images/rock.png"
 
 
+// listener for player choices
 const rock = document.getElementById('rock')
 rock.addEventListener('click', () => {
     playerSelection = "rock";
@@ -48,6 +48,8 @@ paper.addEventListener('click', () => {
 });
 
 
+
+//function for starting the game
 function game(){
         var result = play(playerSelection, computerSelection);
         if(playerScore == 5){
@@ -74,7 +76,7 @@ function game(){
         console.log(computerScore);
 }
 
-
+//function for getting the result of a round
 function play(playerSelection, computerSelection){
     computerSelection = getComputerChoice().toLowerCase();
 
@@ -112,18 +114,19 @@ function play(playerSelection, computerSelection){
 
 }
 
+
+//function for getting the computer choice for the playing function
 function getComputerChoice(){
     const rockScissorPaperArray =["Rock", "Scissor", "Paper"];
     const randomPick = Math.random();
     const index = Math.floor(randomPick * rockScissorPaperArray.length);
 
     const randomVariable = rockScissorPaperArray[index];
-    
-
 
     return randomVariable;
 }
 
+//function to restart the game 
 function restartGame(){
     playerScore = 0
     computerScore = 0
@@ -133,5 +136,4 @@ function restartGame(){
     contentPlayer.remove(sbContainer)
     contentComputer.remove(sbContainer2)
 }
-
 

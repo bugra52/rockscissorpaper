@@ -14,7 +14,7 @@ body{
     width: 200px;
     justify-content: center;
     border-radius: 20%;
-    margin: 0 200px;
+    margin-left: 100px;
     border-width: 10px;
     border-color: aliceblue;
     border-style: solid;
@@ -35,7 +35,7 @@ body{
     display: flex;
     flex: 1;
     justify-content: space-between;
-    margin: 100px 300px 100px 300px;
+    margin: 300px 300px 100px 300px;
 }
 
 .btn{
@@ -54,7 +54,10 @@ img{
 }
 
 .rival{
-    margin-top: 50px;
     display: flex;
-    
+    margin-left: 50px;
+}
+
+.sb {
+    display: flex
 }
