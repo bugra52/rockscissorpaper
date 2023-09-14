@@ -1,27 +1,30 @@
 body{
-    background-color: blue;
+    background-color: rgb(144, 178, 211);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-button{
-    height: 200px;
-    width: 200px;
-}
+
 
 .scoreboard{
     display: flex;
-    height: 200px;
+    height: 100px;
+    background-color: rgb(80, 33, 117);
     width: 200px;
-    background-color: yellow;
-    width: auto;
     justify-content: center;
+    border-radius: 20%;
+    margin: 0 200px;
+    border-width: 10px;
+    border-color: aliceblue;
+    border-style: solid;
+    
 }
 
 .score{
-    height: 100px;
-    width: 100px;
-    background-color: white;
+    height: auto;
+    width: auto;
+    color:rgb(144, 178, 211);
     margin: auto;
     text-align: center;
     
@@ -31,9 +34,27 @@ button{
 .buttons{
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 100px 300px 100px 300px;
 }
 
 .btn{
     margin: 0 auto;
+}
+
+img{
+    height:100px;
+    width:100px;
+}
+
+.option{
+    display: flex;
+    flex-direction: column;
+    margin: 0 100px;
+}
+
+.rival{
+    margin-top: 50px;
+    display: flex;
+    
 }

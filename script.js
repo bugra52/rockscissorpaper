@@ -24,6 +24,10 @@ const contentComputer = document.createElement('p')
 contentComputer.classList.add('score')
 contentComputer.textContent = 'You lose!'
 
+const imgContainer = document.querySelector('.rival')
+const contentImage = document.createElement('img')
+contentImage.src = "/images/rock.png"
+
 
 const rock = document.getElementById('rock')
 rock.addEventListener('click', () => {
@@ -114,6 +118,9 @@ function getComputerChoice(){
     const index = Math.floor(randomPick * rockScissorPaperArray.length);
 
     const randomVariable = rockScissorPaperArray[index];
+    
+
+
     return randomVariable;
 }
 
@@ -124,6 +131,7 @@ function restartGame(){
     p2.textContent = computerScore
     console.log("restart")
     contentPlayer.remove(sbContainer)
+    contentComputer.remove(sbContainer2)
 }
 
 
