@@ -27,7 +27,6 @@ contentComputer.classList.add('score')
 contentComputer.textContent = 'You lose!'
 
 
-
 // listener for player choices
 const rock = document.getElementById('rock')
 rock.addEventListener('click', () => {
@@ -47,10 +46,13 @@ paper.addEventListener('click', () => {
     game();
 });
 
-
+//container cpuImg
+document.getElementById("cpuImg").src="images/question.png";
 
 //function for starting the game
 function game(){
+    if((playerScore || computerScore) == 5){
+        return;}
         var result = play(playerSelection, computerSelection);
         if(playerScore == 5){
             return sbContainer.appendChild(contentPlayer)
@@ -67,9 +69,11 @@ function game(){
             p2.textContent = computerScore;
         }
         if(playerScore == 5){
+            document.getElementById("cpuImg").src="images/question.png";
             return sbContainer.appendChild(contentPlayer)
         }
         if(computerScore == 5){
+            document.getElementById("cpuImg").src="images/question.png";
             return sbContainer.appendChild(contentComputer)
         }
         console.log(playerScore);
@@ -78,6 +82,7 @@ function game(){
 
 //function for getting the result of a round
 function play(playerSelection, computerSelection){
+
     computerSelection = getComputerChoice().toLowerCase();
 
     console.log(playerSelection);
@@ -114,16 +119,27 @@ function play(playerSelection, computerSelection){
 
 }
 
-
 //function for getting the computer choice for the playing function
 function getComputerChoice(){
+
     const rockScissorPaperArray =["Rock", "Scissor", "Paper"];
     const randomPick = Math.random();
     const index = Math.floor(randomPick * rockScissorPaperArray.length);
-
     const randomVariable = rockScissorPaperArray[index];
-
-    return randomVariable;
+    
+    if (randomVariable === "Rock") {
+        //computerImg.src = "images/stone.png";
+        document.getElementById("cpuImg").src="images/stone.png";
+    } else if (randomVariable === "Scissor") {
+        //computerImg.src = "images/scissor.png";
+        document.getElementById("cpuImg").src="images/scissor.png";
+    } else if (randomVariable === "Paper") {
+        //computerImg.src = "images/paper.png";
+        document.getElementById("cpuImg").src="images/paper.png";
+    }
+    
+    
+    return randomVariable; 
 }
 
 //function to restart the game 

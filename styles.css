@@ -61,3 +61,7 @@ img{
 .sb {
     display: flex
 }
+
+.computerChoice {
+    margin-top: 50px;
+}
